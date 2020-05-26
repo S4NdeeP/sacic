@@ -1,0 +1,37 @@
+modelname: iwslt_l24_efficient
+default_config : config/pervasive.yaml
+
+init_network :
+  type: efficient-densenet
+  num_layers : 24
+  growth_rate : 32
+  kernels: 3
+  conv_dropout : .2
+
+obj_att_network :
+  type: efficient-densenet
+  num_layers : 24
+  growth_rate : 32
+  kernels: 3
+  conv_dropout : .2
+
+network :
+  type: efficient-densenet
+  num_layers : 24
+  growth_rate : 32
+  kernels: 3
+  conv_dropout : .2
+
+data:
+  src : de
+  trg : en
+  dir : data/iwslt
+  max_src_length : 100
+  max_trg_length : 20
+
+
+track: 
+  checkpoint : 8000
+  max_length_a : 0
+  max_length_b : 80
+
